@@ -13,7 +13,16 @@ const MainPage = () => {
                 </MainSubTitle>
             </MainTitleSection>
         </FlexContainer>
-    </MainPageSeciton>  
+        <SloganSection>
+            <SloganTitle>CEMENT</SloganTitle>
+            <Slogan>“무아의 지경에 빠져있는 나의 모습을 보며"</Slogan>
+            <SloganDescription>
+                어디에서나 실행력으로 빛을 내는 시멘트
+                <br />
+                어디에서나 실행력으로 빛을 내는 시멘트
+            </SloganDescription>
+        </SloganSection>
+    </MainPageSeciton>
     )
 }
 
@@ -57,3 +66,39 @@ const MainSubTitle = styled.div`
     font-weight: 400;
     color: #FFF;
 `
+
+const SloganSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    height: 840px;
+    background: #FFF;
+`
+
+const SloganTitle = styled.div`
+    color: #000;
+    font-size: 48px;
+    font-weight: 400;
+`
+
+const Slogan = styled.div`
+    background: linear-gradient(90deg, #FC5C7D 0%, #6A82FB 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    font-family: NEXONFootballGothicBA1;
+    font-size: 90px;
+    font-weight: 300;
+`
+
+const SloganDescription = styled.div`
+    color: #000;
+    font-family: NanumBarunGothicOTF;
+    font-size: 40px;
+    font-weight: 400;
+`
+

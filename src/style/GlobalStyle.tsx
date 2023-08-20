@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'NEXONFootballGothicBA1';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicBA1.woff') format('woff');
+    src: url('//cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicBA1.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
