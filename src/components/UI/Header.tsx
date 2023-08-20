@@ -21,11 +21,12 @@ const Header = () => {
 export default Header
 
 const HeaderSection = styled.div`
+    position: fixed;
+    top: 0;
     width: 100%;
     height: 117px;
     
-    background: #FFF;
-    box-shadow: 0px 8px 7px 0px rgba(0, 0, 0, 0.13);
+    /* box-shadow: 0px 8px 7px 0px rgba(0, 0, 0, 0.13); */
 `
 
 const FlexContainer = styled.div`
@@ -55,5 +56,6 @@ const NavigationButton = styled.button`
 
     font-size: 28px;
     font-weight: 400;
-    color: #5B5B5B;
+    /* color: #5B5B5B; */
+    color: #fff;
 `
