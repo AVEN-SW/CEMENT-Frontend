@@ -33,6 +33,11 @@ const MainPage = () => {
                 </PortfolioImages>
             </PortfolioContainer>
         </PortfolioSection>
+        <ContactSection>
+            <ContactContainer>
+                <ContactTitle>CONTACT</ContactTitle>
+            </ContactContainer>
+        </ContactSection>
     </MainPageSeciton>
     )
 }
@@ -150,4 +155,26 @@ const PortfolioImages = styled.div`
 const PortfolioImage = styled.img`
     width: 374px;
     height: 536px;
-`   
+`
+
+const ContactSection = styled.div`
+    width: 100%;
+    height: 742px;
+    background: rgba(228, 147, 43, 0.16);
+`
+
+const ContactContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 500px; // 임의 값
+`
+
+const ContactTitle = styled.div`
+    color: #000;
+    font-size: 48px;
+    font-weight: 400;
+`
