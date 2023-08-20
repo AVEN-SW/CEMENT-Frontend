@@ -22,6 +22,17 @@ const MainPage = () => {
                 어디에서나 실행력으로 빛을 내는 시멘트
             </SloganDescription>
         </SloganSection>
+        <PortfolioSection>
+            <PortfolioContainer>
+                <PortfolioTitle>PORTFOLIO</PortfolioTitle>
+                <PortfolioImages>
+                    <PortfolioImage src="./src/assets/sample.png" alt="포트폴리오 이미지" />
+                    <PortfolioImage src="./src/assets/sample.png" alt="포트폴리오 이미지" />
+                    <PortfolioImage src="./src/assets/sample.png" alt="포트폴리오 이미지" />
+                    <PortfolioImage src="./src/assets/sample.png" alt="포트폴리오 이미지" />
+                </PortfolioImages>
+            </PortfolioContainer>
+        </PortfolioSection>
     </MainPageSeciton>
     )
 }
@@ -102,3 +113,41 @@ const SloganDescription = styled.div`
     font-weight: 400;
 `
 
+const PortfolioSection = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 968px;
+    background: #E4932B;
+`
+
+const PortfolioContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 731px;
+`
+
+const PortfolioTitle = styled.div`
+    color: #FFF;
+    font-size: 48px;
+    font-weight: 400;
+`
+
+const PortfolioImages = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 90%;
+`
+
+const PortfolioImage = styled.img`
+    width: 374px;
+    height: 536px;
+`   
