@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx'
 import './index.css'
 import MainPage from './pages/MainPage.tsx';
+import CulturePage from './pages/CulturePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <MainPage />,
+      },
+      {
+        path: 'culture',
+        element: <CulturePage />,
       },
     ],
   },
