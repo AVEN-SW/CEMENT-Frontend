@@ -27,7 +27,7 @@ const Header = ({ pathname }: Props) => {
   return (
     <HeaderSection $scroll={scrollLocation} $pathname={pathname}>
       <FlexContainer>
-        <LogoSection>
+        <LogoSection to="/">
           <img src="./src/assets/logo.png" alt="로고 이미지" />
         </LogoSection>
         <NavigationSection>
@@ -90,7 +90,7 @@ const FlexContainer = styled.div`
   height: 100%;
 `;
 
-const LogoSection = styled.div``;
+const LogoSection = styled(Link)``;
 
 const NavigationSection = styled.div`
   display: flex;
