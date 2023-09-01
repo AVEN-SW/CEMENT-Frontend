@@ -90,7 +90,7 @@ const CultureTitleContainer = styled.div`
 
   width: 100%;
   margin-right: 70px;
-  margin-bottom: 150px;
+  margin-bottom: 10px;
 `;
 
 const CultureTitle = styled.h1`

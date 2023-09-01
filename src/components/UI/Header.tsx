@@ -2,32 +2,61 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-const Header = () => {
+interface Props {
+  pathname: string;
+}
+
+type headerStyleProps = {
+  $scroll: number;
+  $pathname: string;
+};
+
+const Header = ({ pathname }: Props) => {
   const [scrollLocation, setScrollLocation] = useState(0);
+
   const updateScroll = () => {
     setScrollLocation(window.scrollY || document.documentElement.scrollTop);
   };
+
   useEffect(() => {
-    window.addEventListener('scroll', updateScroll);
+    if (pathname === '/') {
+      window.addEventListener('scroll', updateScroll);
+    }
   });
 
   return (
-    <HeaderSection scroll={scrollLocation}>
+    <HeaderSection $scroll={scrollLocation} $pathname={pathname}>
       <FlexContainer>
         <LogoSection>
           <img src="./src/assets/logo.png" alt="로고 이미지" />
         </LogoSection>
         <NavigationSection>
-          <NavigationButton to="culture" scroll={scrollLocation}>
+          <NavigationButton
+            to="culture"
+            $scroll={scrollLocation}
+            $pathname={pathname}
+          >
             Culture
           </NavigationButton>
-          <NavigationButton to="/" scroll={scrollLocation}>
+          <NavigationButton
+            to="/"
+            $scroll={scrollLocation}
+            $pathname={pathname}
+          >
             People
           </NavigationButton>
-          <NavigationButton to="/" scroll={scrollLocation}>
+          <NavigationButton
+            to="/"
+            $scroll={scrollLocation}
+            $pathname={pathname}
+          >
             Benefits
           </NavigationButton>
-          <NavigationButton to="/" scroll={scrollLocation}>
+          <NavigationButton
+            to="/"
+            $scroll={scrollLocation}
+            $pathname={pathname}
+          >
             Portfolio
           </NavigationButton>
         </NavigationSection>
@@ -38,16 +67,18 @@ const Header = () => {
 
 export default Header;
 
-const HeaderSection = styled.div<{ scroll: number }>`
+const HeaderSection = styled.div<headerStyleProps>`
   position: fixed;
   top: 0;
   width: 100%;
   height: 117px;
-  background: ${(props) => props.scroll > 117 && '#fff'};
+  background: ${(props) =>
+    (props.$scroll > 117 || props.$pathname !== '/') && '#fff'};
   transition: all ease 0.3s;
 
   box-shadow: ${(props) =>
-    props.scroll > 117 && '0px 8px 7px 0px rgba(0, 0, 0, 0.13)'};
+    (props.$scroll > 117 || props.$pathname !== '/') &&
+    '0px 8px 7px 0px rgba(0, 0, 0, 0.13)'};
 `;
 
 const FlexContainer = styled.div`
@@ -69,13 +100,14 @@ const NavigationSection = styled.div`
   width: 663px;
 `;
 
-const NavigationButton = styled(Link)<{ scroll: number }>`
+const NavigationButton = styled(Link)<headerStyleProps>`
   background: unset;
   border: unset;
   transition: all ease 0.3s;
 
   font-size: 28px;
   font-weight: 400;
-  color: ${(props) => (props.scroll > 117 ? '#5B5B5B' : '#fff')};
+  color: ${(props) =>
+    props.$scroll > 117 || props.$pathname !== '/' ? '#5B5B5B' : '#fff'};
   text-decoration: none;
 `;
