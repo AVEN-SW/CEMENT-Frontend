@@ -40,6 +40,24 @@ const CulturePage = () => {
               alt="두 번째 갤러리 두 번째 이미지"
             />
           </SecondGalleryContainer>
+          <ThirdGalleryContainer>
+            <ThirdGalleryTitle>
+              협력자들과 동료들 앞에 정직하게
+            </ThirdGalleryTitle>
+            <ThirdGallerySubTitle>
+              시멘트를 신뢰하는 협력자들, 그리고 동료들 앞에 <br />
+              당당하게 모든 것을 설명할 수 있도록 시민 의식을 <br />
+              가지고 타협 없이 정직하게 일합니다.
+            </ThirdGallerySubTitle>
+            <ThirdGalleryImage
+              src="src/assets/second-gallery.png"
+              alt="세 번째 갤러리 이미지"
+            />
+            <ThirdGallerySecondImage
+              src="src/assets/second-gallery2.png"
+              alt="세 번째 갤러리 두 번째 이미지"
+            />
+          </ThirdGalleryContainer>
         </CultureGalleryContainer>
       </FlexContainer>
     </CulturePageSection>
@@ -61,7 +79,8 @@ const FlexContainer = styled.div`
   align-items: center;
 
   width: 100%;
-  margin-top: 200px;
+  height: 100%;
+  margin-top: 100px;
 `;
 
 const CultureTitleContainer = styled.div`
@@ -70,6 +89,8 @@ const CultureTitleContainer = styled.div`
   align-items: center;
 
   width: 100%;
+  margin-right: 70px;
+  margin-bottom: 150px;
 `;
 
 const CultureTitle = styled.h1`
@@ -92,6 +113,7 @@ const CultureGalleryContainer = styled.div`
   align-items: center;
 
   width: 100%;
+  height: 2900px;
 `;
 
 const FirstGalleryContainer = styled.div`
@@ -144,7 +166,7 @@ const SecondGalleryContainer = styled.div`
 
   position: relative;
   width: 80%;
-  height: 800px;
+  height: 830px;
   z-index: -1;
 `;
 
@@ -175,6 +197,48 @@ const SecondGallerySecondImage = styled.img`
   top: 0;
 
   height: 450px;
+
+  object-fit: cover;
+`;
+
+const ThirdGalleryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  position: relative;
+  width: 80%;
+  height: 820px;
+  z-index: -1;
+`;
+
+const ThirdGalleryTitle = styled.div`
+  color: #5b5b5b;
+  font-family: NEXONFootballGothicBA1;
+  font-size: 60px;
+  font-weight: 500;
+`;
+
+const ThirdGallerySubTitle = styled.div`
+  color: #5b5b5b;
+  font-family: NEXONFootballGothicBA1;
+  font-size: 36px;
+  font-weight: 300;
+`;
+
+const ThirdGalleryImage = styled.img`
+  width: 60%;
+
+  object-fit: cover;
+`;
+
+const ThirdGallerySecondImage = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  width: 40%;
 
   object-fit: cover;
 `;
