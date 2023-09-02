@@ -5,6 +5,7 @@ import App from './App.tsx'
 import './index.css'
 import MainPage from './pages/MainPage.tsx';
 import CulturePage from './pages/CulturePage.tsx';
+import PeoplePage from './pages/PeoplePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: 'culture',
         element: <CulturePage />,
+      },
+      {
+        path: 'people',
+        element: <PeoplePage />,
       },
     ],
   },
