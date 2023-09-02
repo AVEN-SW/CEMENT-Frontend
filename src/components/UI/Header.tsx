@@ -53,7 +53,7 @@ const Header = ({ pathname }: Props) => {
             Benefits
           </NavigationButton>
           <NavigationButton
-            to="/"
+            to="portfolio"
             $scroll={scrollLocation}
             $pathname={pathname}
           >

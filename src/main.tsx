@@ -7,6 +7,7 @@ import MainPage from './pages/MainPage.tsx';
 import CulturePage from './pages/CulturePage.tsx';
 import PeoplePage from './pages/PeoplePage.tsx';
 import BenefitPage from './pages/BenefitPage.tsx';
+import PortfolioPage from './pages/PortfolioPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: 'benefit',
         element: <BenefitPage />,
+      },
+      {
+        path: 'portfolio',
+        element: <PortfolioPage />,
       },
     ],
   },
