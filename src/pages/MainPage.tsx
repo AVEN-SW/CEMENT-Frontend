@@ -45,11 +45,11 @@ const MainPage = () => {
 export default MainPage
 
 const MainPageSeciton = styled.div`
-    width: 100%;
-    height: 1197px;
-    
-    background: url("./src/assets/main-image.png"), lightgray 50% / cover no-repeat;
-`
+  width: 100%;
+  height: 1197px;
+
+  background: url('./src/assets/main-image.png');
+`;
 
 const FlexContainer = styled.div`
     display: flex;
