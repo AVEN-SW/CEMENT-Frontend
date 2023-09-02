@@ -6,7 +6,7 @@ import './index.css'
 import MainPage from './pages/MainPage.tsx';
 import CulturePage from './pages/CulturePage.tsx';
 import PeoplePage from './pages/PeoplePage.tsx';
-import Benefit from './pages/Benefit.tsx';
+import BenefitPage from './pages/BenefitPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'benefit',
-        element: <Benefit />,
+        element: <BenefitPage />,
       },
     ],
   },
