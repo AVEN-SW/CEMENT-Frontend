@@ -6,6 +6,7 @@ import './index.css'
 import MainPage from './pages/MainPage.tsx';
 import CulturePage from './pages/CulturePage.tsx';
 import PeoplePage from './pages/PeoplePage.tsx';
+import BenefitPage from './pages/BenefitPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: 'people',
         element: <PeoplePage />,
+      },
+      {
+        path: 'benefit',
+        element: <BenefitPage />,
       },
     ],
   },

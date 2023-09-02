@@ -46,7 +46,7 @@ const Header = ({ pathname }: Props) => {
             People
           </NavigationButton>
           <NavigationButton
-            to="/"
+            to="benefit"
             $scroll={scrollLocation}
             $pathname={pathname}
           >
