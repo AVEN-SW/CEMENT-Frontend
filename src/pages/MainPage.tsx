@@ -1,5 +1,23 @@
 import { styled } from "styled-components"
 
+const instagramFeed = [
+  'src/assets/instagram.png',
+  'src/assets/instagram2.png',
+  'src/assets/instagram3.png',
+  'src/assets/instagram4.png',
+  'src/assets/instagram5.png',
+  'src/assets/instagram6.png',
+  'src/assets/instagram7.png',
+  'src/assets/instagram8.png',
+  'src/assets/instagram9.png',
+  'src/assets/instagram10.png',
+  'src/assets/instagram11.png',
+  'src/assets/instagram12.png',
+  'src/assets/instagram13.png',
+  'src/assets/instagram14.png',
+  'src/assets/instagram15.png',
+];
+
 const MainPage = () => {
   return (
     <MainPageSeciton>
@@ -46,6 +64,11 @@ const MainPage = () => {
           </PortfolioImages>
         </PortfolioContainer>
       </PortfolioSection>
+      <InstagramSection>
+        {instagramFeed.map((thumbnail, index) => {
+          return <img src={thumbnail} alt={`인스타그램 피드 ${index + 1}`} />;
+        })}
+      </InstagramSection>
       <ContactSection>
         <ContactContainer>
           <ContactTitle>CONTACT</ContactTitle>
@@ -186,6 +209,14 @@ const PortfolioSignature = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+`;
+
+const InstagramSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  width: 100%;
 `;
 
 const ContactSection = styled.div`
