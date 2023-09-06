@@ -79,6 +79,8 @@ const HeaderSection = styled.div<headerStyleProps>`
   box-shadow: ${(props) =>
     (props.$scroll > 117 || props.$pathname !== '/') &&
     '0px 8px 7px 0px rgba(0, 0, 0, 0.13)'};
+
+  z-index: 1000;
 `;
 
 const FlexContainer = styled.div`
