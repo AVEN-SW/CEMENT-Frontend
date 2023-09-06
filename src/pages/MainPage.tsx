@@ -3,43 +3,55 @@ import { styled } from "styled-components"
 const MainPage = () => {
   return (
     <MainPageSeciton>
-        <FlexContainer>
-            <MainTitleSection>
-                <MainTitle>CEMENT</MainTitle>
-                <MainSubTitle>
-                    함께하다, 이어지다, 관계를 강화하다
-                    <br />
-                    두 번째 줄 함께하다, 이어지다, 관계를 강화하다
-                </MainSubTitle>
-            </MainTitleSection>
-        </FlexContainer>
-        <SloganSection>
-            <SloganTitle>CEMENT</SloganTitle>
-            <Slogan>“무아의 지경에 빠져있는 나의 모습을 보며"</Slogan>
-            <SloganDescription>
-                어디에서나 실행력으로 빛을 내는 시멘트
-                <br />
-                어디에서나 실행력으로 빛을 내는 시멘트
-            </SloganDescription>
-        </SloganSection>
-        <PortfolioSection>
-            <PortfolioContainer>
-                <PortfolioTitle>PORTFOLIO</PortfolioTitle>
-                <PortfolioImages>
-                    <PortfolioImage src="./src/assets/sample.png" alt="포트폴리오 이미지" />
-                    <PortfolioImage src="./src/assets/sample.png" alt="포트폴리오 이미지" />
-                    <PortfolioImage src="./src/assets/sample.png" alt="포트폴리오 이미지" />
-                    <PortfolioImage src="./src/assets/sample.png" alt="포트폴리오 이미지" />
-                </PortfolioImages>
-            </PortfolioContainer>
-        </PortfolioSection>
-        <ContactSection>
-            <ContactContainer>
-                <ContactTitle>CONTACT</ContactTitle>
-            </ContactContainer>
-        </ContactSection>
+      <FlexContainer>
+        <MainTitleSection>
+          <MainTitle>CEMENT</MainTitle>
+          <MainSubTitle>
+            Time To Cement
+            <br />
+            함께하다, 이어지다, 관계를 강화하다
+          </MainSubTitle>
+        </MainTitleSection>
+      </FlexContainer>
+      <SloganSection>
+        <SloganTitle>CEMENT</SloganTitle>
+        <Slogan>“모두가 좋아하는 팀"</Slogan>
+        <SloganDescription>
+          어디에서나 실행력으로 빛을 내는 시멘트
+          <br />
+          어디에서나 실행력으로 빛을 내는 시멘트
+        </SloganDescription>
+      </SloganSection>
+      <PortfolioSection>
+        <PortfolioContainer>
+          <PortfolioTitle>PORTFOLIO</PortfolioTitle>
+          <PortfolioImages>
+            <PortfolioImage
+              src="./src/assets/sample.png"
+              alt="포트폴리오 이미지"
+            />
+            <PortfolioImage
+              src="./src/assets/sample.png"
+              alt="포트폴리오 이미지"
+            />
+            <PortfolioImage
+              src="./src/assets/sample.png"
+              alt="포트폴리오 이미지"
+            />
+            <PortfolioImage
+              src="./src/assets/sample.png"
+              alt="포트폴리오 이미지"
+            />
+          </PortfolioImages>
+        </PortfolioContainer>
+      </PortfolioSection>
+      <ContactSection>
+        <ContactContainer>
+          <ContactTitle>CONTACT</ContactTitle>
+        </ContactContainer>
+      </ContactSection>
     </MainPageSeciton>
-    )
+  );
 }
 
 export default MainPage
