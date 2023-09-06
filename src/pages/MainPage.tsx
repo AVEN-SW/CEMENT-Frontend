@@ -32,13 +32,9 @@ const MainPage = () => {
         </MainTitleSection>
       </FlexContainer>
       <SloganSection>
-        <SloganTitle>CEMENT</SloganTitle>
+        <SloganTitle></SloganTitle>
         <Slogan>“모두가 좋아하는 팀"</Slogan>
-        <SloganDescription>
-          어디에서나 실행력으로 빛을 내는 시멘트
-          <br />
-          어디에서나 실행력으로 빛을 내는 시멘트
-        </SloganDescription>
+        <SloganDescription></SloganDescription>
       </SloganSection>
       <PortfolioSection>
         <PortfolioContainer>
