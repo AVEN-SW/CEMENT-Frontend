@@ -72,6 +72,23 @@ const MainPage = () => {
       <ContactSection>
         <ContactContainer>
           <ContactTitle>CONTACT</ContactTitle>
+          <ContactQrcode src="src/assets/qr-code.svg" alt="qr코드" />
+          <Contact>
+            <ContactMap alt="지도" />
+            <ContactInquriy>
+              모든 문의
+              <br />
+              <br />
+              [이메일]
+              <br />
+              psc010101@tukorea.ac.kr
+              <br />
+              <br />
+              [DM]
+              <br />
+              @cement__official
+            </ContactInquriy>
+          </Contact>
         </ContactContainer>
       </ContactSection>
     </MainPageSeciton>
@@ -220,23 +237,62 @@ const InstagramSection = styled.div`
 `;
 
 const ContactSection = styled.div`
-    width: 100%;
-    height: 742px;
-    background: rgba(228, 147, 43, 0.16);
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 742px;
+  background: rgba(228, 147, 43, 0.16);
+`;
 
 const ContactContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
-    width: 100%;
-    height: 500px; // 임의 값
-`
+  width: 100%;
+  height: 620px;
+`;
 
 const ContactTitle = styled.div`
-    color: #000;
-    font-size: 48px;
-    font-weight: 400;
-`
+  color: #000;
+  font-size: 48px;
+  font-weight: 400;
+`;
+
+const ContactQrcode = styled.img`
+  width: 200px;
+  height: 200px;
+`;
+
+const Contact = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 60%;
+`;
+
+const ContactMap = styled.img`
+  width: 50%;
+  height: 230px;
+  background: #fff;
+`;
+
+const ContactInquriy = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-left: 50px;
+
+  color: #000;
+  font-family: Gmarket Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
