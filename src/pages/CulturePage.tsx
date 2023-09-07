@@ -29,6 +29,7 @@ const CulturePageSection = styled.div`
   width: 100%;
 
   padding-top: 117px;
+  margin-bottom: 420px;
 `;
 
 const FlexContainer = styled.div`
