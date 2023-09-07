@@ -72,6 +72,8 @@ const HeaderSection = styled.div<headerStyleProps>`
   top: 0;
   width: 100%;
   height: 117px;
+  padding-top: ${(props) => props.$pathname === '/' && '35px'};
+
   background: ${(props) =>
     (props.$scroll > 117 || props.$pathname !== '/') && '#fff'};
   transition: all ease 0.3s;
