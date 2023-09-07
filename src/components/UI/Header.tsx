@@ -72,6 +72,8 @@ const HeaderSection = styled.div<headerStyleProps>`
   top: 0;
   width: 100%;
   height: 117px;
+  padding-top: ${(props) => props.$pathname === '/' && '35px'};
+
   background: ${(props) =>
     (props.$scroll > 117 || props.$pathname !== '/') && '#fff'};
   transition: all ease 0.3s;
@@ -79,6 +81,8 @@ const HeaderSection = styled.div<headerStyleProps>`
   box-shadow: ${(props) =>
     (props.$scroll > 117 || props.$pathname !== '/') &&
     '0px 8px 7px 0px rgba(0, 0, 0, 0.13)'};
+
+  z-index: 1000;
 `;
 
 const FlexContainer = styled.div`
