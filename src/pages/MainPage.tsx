@@ -1,4 +1,5 @@
 import { styled } from "styled-components"
+import InfinityScrollText from '../components/InfinityScroll/InfinityScrollText';
 
 const instagramFeed = [
   'src/assets/instagram.png',
@@ -22,6 +23,7 @@ const MainPage = () => {
   return (
     <MainPageSeciton>
       <FlexContainer>
+        <InfinityScrollText />
         <MainTitleSection>
           <MainTitle>CEMENT</MainTitle>
           <MainSubTitle>
@@ -115,6 +117,8 @@ const MainTitleSection = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+
 
 const MainTitle = styled.div`
   padding-bottom: 172px;
