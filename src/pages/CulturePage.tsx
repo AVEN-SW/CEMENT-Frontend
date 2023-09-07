@@ -23,6 +23,9 @@ const CulturePage = () => {
 export default CulturePage;
 
 const CulturePageSection = styled.div`
+  display: flex;
+  justify-content: center;
+
   width: 100%;
 
   padding-top: 117px;
@@ -34,7 +37,7 @@ const FlexContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 100%;
+  width: 65%;
   height: 100%;
   margin-top: 100px;
 `;
@@ -45,7 +48,6 @@ const CultureTitleContainer = styled.div`
   align-items: center;
 
   width: 100%;
-  margin-right: 70px;
   margin-bottom: 220px;
 `;
 
@@ -54,12 +56,13 @@ const CultureTitle = styled.h1`
   justify-content: flex-start;
   align-items: center;
 
-  width: 80%;
+  width: 100%;
 
   color: #5b5b5b;
   font-family: Gmarket Sans;
-  font-size: 70px;
-  font-weight: 700;
+  font-size: 60px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 `;
 
 const CultureGalleryContainer = styled.div`
