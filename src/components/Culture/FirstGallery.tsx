@@ -62,9 +62,6 @@ const FirstGalleryImage = styled.img`
   width: 100%;
   max-height: 50%;
 
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-
   object-fit: cover;
 `;
 
