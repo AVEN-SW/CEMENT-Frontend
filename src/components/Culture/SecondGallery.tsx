@@ -6,7 +6,7 @@ const SecondGallery = () => {
       <SecondGalleryTitle>자율적으로, 책임감 있게</SecondGalleryTitle>
       <SecondGalleryContents>
         <SecondGallerySecondImage
-          src="src/assets/second-gallery2.png"
+          src="src/assets/second-gallery.png"
           alt="두 번째 갤러리 두 번째 이미지"
         />
         <SecondGallerySubTitleContainer>
@@ -16,7 +16,7 @@ const SecondGallery = () => {
             스스로의 기준을 만족시키고 뛰어넘는 데 집중합니다.
           </SecondGallerySubTitle>
           <SecondGalleryImage
-            src="src/assets/second-gallery.png"
+            src="src/assets/second-gallery2.png"
             alt="두 번째 갤러리 이미지"
           />
         </SecondGallerySubTitleContainer>
