@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import InfinityScrollText from '../InfinityScroll/InfinityScrollText';
 
 interface Props {
   pathname: string;
@@ -26,6 +27,7 @@ const Header = ({ pathname }: Props) => {
 
   return (
     <HeaderSection $scroll={scrollLocation} $pathname={pathname}>
+      <InfinityScrollText />
       <FlexContainer>
         <LogoSection to="/">
           <img src="./src/assets/logo.png" alt="로고 이미지" />
@@ -72,7 +74,7 @@ const HeaderSection = styled.div<headerStyleProps>`
   top: 0;
   width: 100%;
   height: 117px;
-  padding-top: ${(props) => props.$pathname === '/' && '35px'};
+  padding-top: 35px;
 
   background: ${(props) =>
     (props.$scroll > 117 || props.$pathname !== '/') && '#fff'};
@@ -87,14 +89,16 @@ const HeaderSection = styled.div<headerStyleProps>`
 
 const FlexContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
   width: 100%;
   height: 100%;
 `;
 
-const LogoSection = styled(Link)``;
+const LogoSection = styled(Link)`
+  margin-left: 60px;
+`;
 
 const NavigationSection = styled.div`
   display: flex;
@@ -102,6 +106,7 @@ const NavigationSection = styled.div`
   align-items: center;
 
   width: 663px;
+  margin-right: 50px;
 `;
 
 const NavigationButton = styled(Link)<headerStyleProps>`
@@ -109,7 +114,7 @@ const NavigationButton = styled(Link)<headerStyleProps>`
   border: unset;
   transition: all ease 0.3s;
 
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 400;
   color: ${(props) =>
     props.$scroll > 117 || props.$pathname !== '/' ? '#5B5B5B' : '#fff'};
