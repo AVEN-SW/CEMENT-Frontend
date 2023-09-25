@@ -1,4 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+import LineSeedThin from '/assets/fonts/LINESeedKR-Th.woff2';
+import LineSeedRegular from '/assets/fonts/LINESeedKR-Rg.woff2';
+import LineSeedBold from '/assets/fonts/LINESeedKR-Bd.woff2';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -9,12 +12,24 @@ const GlobalStyle = createGlobalStyle`
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 }
 
-  @font-face {
-    font-family: 'NEXONFootballGothicBA1';
-    src: url('//cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicBA1.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+@font-face {
+    font-family: 'LineSeed-Thin';
+    src: url(${LineSeedThin}) format('truetype');
+    font-display: swap;
+    font-weight: 100;
+    }
+    @font-face {
+    font-family: 'LineSeed-Regular';
+    src: url(${LineSeedRegular}) format('truetype');
+    font-display: swap;
+    font-weight: 400;
+    }
+    @font-face {
+    font-family: 'LineSeed-Bold';
+    src: url(${LineSeedBold}) format('truetype');
+    font-display: swap;
+    font-weight: 700;
+    }
 
   *, *::before, *::after {
     box-sizing: border-box;
