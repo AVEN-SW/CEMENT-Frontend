@@ -139,7 +139,8 @@ const SloganSection = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 840px;
+  padding-top: 243px;
+  padding-bottom: 243px;
   background: #fff;
 `;
 
@@ -155,9 +156,8 @@ const Slogan = styled.div`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  font-family: NEXONFootballGothicBA1;
+  font-family: 'LineSeed-Bold';
   font-size: 90px;
-  font-weight: 300;
 `;
 
 const SloganDescription = styled.div`
