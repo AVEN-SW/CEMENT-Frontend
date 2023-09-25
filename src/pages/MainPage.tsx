@@ -1,21 +1,21 @@
 import { styled } from 'styled-components';
 
 const instagramFeed = [
-  'src/assets/instagram.png',
-  'src/assets/instagram2.png',
-  'src/assets/instagram3.png',
-  'src/assets/instagram4.png',
-  'src/assets/instagram5.png',
-  'src/assets/instagram6.png',
-  'src/assets/instagram7.png',
-  'src/assets/instagram8.png',
-  'src/assets/instagram9.png',
-  'src/assets/instagram10.png',
-  'src/assets/instagram11.png',
-  'src/assets/instagram12.png',
-  'src/assets/instagram13.png',
-  'src/assets/instagram14.png',
-  'src/assets/instagram15.png',
+  '/assets//instagram.png',
+  '/assets//instagram2.png',
+  '/assets//instagram3.png',
+  '/assets//instagram4.png',
+  '/assets//instagram5.png',
+  '/assets//instagram6.png',
+  '/assets//instagram7.png',
+  '/assets//instagram8.png',
+  '/assets//instagram9.png',
+  '/assets//instagram10.png',
+  '/assets//instagram11.png',
+  '/assets//instagram12.png',
+  '/assets//instagram13.png',
+  '/assets//instagram14.png',
+  '/assets//instagram15.png',
 ];
 
 const MainPage = () => {
@@ -41,19 +41,19 @@ const MainPage = () => {
           <PortfolioTitle>PORTFOLIO</PortfolioTitle>
           <PortfolioImages>
             <PortfolioImage
-              src="./src/assets/main-sample.png"
+              src=".//assets//main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioImage
-              src="./src/assets/main-sample.png"
+              src=".//assets//main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioImage
-              src="./src/assets/main-sample.png"
+              src=".//assets//main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioImage
-              src="./src/assets/main-sample.png"
+              src=".//assets//main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioSignature>Signature</PortfolioSignature>
@@ -68,7 +68,7 @@ const MainPage = () => {
       <ContactSection>
         <ContactContainer>
           <ContactTitle>CONTACT</ContactTitle>
-          <ContactQrcode src="src/assets/qr-code.svg" alt="qr코드" />
+          <ContactQrcode src="/assets//qr-code.svg" alt="qr코드" />
           <Contact>
             <ContactMap alt="지도" />
             <ContactInquriy>
@@ -97,7 +97,7 @@ const MainPageSeciton = styled.div`
   width: 100%;
   height: 1197px;
 
-  background: url('./src/assets/main-image.png');
+  background: url('.//assets//main-image.png');
 `;
 
 const FlexContainer = styled.div`

@@ -11,12 +11,12 @@ const FirstGallery = () => {
           전문성과 영향력을 갖췄다면 누구나 일을 주도할 수 있습니다.
         </FirstGallerySubTitle>
         <FirstGalleryImage
-          src="src/assets/first-gallery.png"
+          src="src/first-gallery.png"
           alt="첫 번째 갤러리 이미지"
         />
       </FirstGalleryTitleContainer>
       <FirstGallerySecondImage
-        src="src/assets/first-gallery2.png"
+        src="src/first-gallery2.png"
         alt="첫 번째 갤러리 두 번쨰 이미지"
       />
     </FirstGalleryContainer>
