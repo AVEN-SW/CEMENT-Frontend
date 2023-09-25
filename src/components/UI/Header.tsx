@@ -30,7 +30,11 @@ const Header = ({ pathname }: Props) => {
       <InfinityScrollText />
       <FlexContainer>
         <LogoSection to="/">
-          <img src="./src/assets/logo.png" alt="로고 이미지" />
+          <img
+            src="./src/assets/logo.png"
+            alt="로고 이미지"
+            style={{ width: '183px', height: '28px' }}
+          />
         </LogoSection>
         <NavigationSection>
           <NavigationButton
@@ -73,7 +77,7 @@ const HeaderSection = styled.div<headerStyleProps>`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 117px;
+  height: 100px;
   padding-top: 35px;
 
   background: ${(props) =>
@@ -97,7 +101,7 @@ const FlexContainer = styled.div`
 `;
 
 const LogoSection = styled(Link)`
-  margin-left: 60px;
+  margin-left: 126px;
 `;
 
 const NavigationSection = styled.div`
@@ -105,11 +109,12 @@ const NavigationSection = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 663px;
-  margin-right: 50px;
+  margin-right: 65px;
 `;
 
 const NavigationButton = styled(Link)<headerStyleProps>`
+  margin-right: 61px;
+
   background: unset;
   border: unset;
   transition: all ease 0.3s;
