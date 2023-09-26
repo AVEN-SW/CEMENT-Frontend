@@ -43,9 +43,8 @@ const SecondGalleryTitle = styled.div`
   width: 100%;
 
   color: #5b5b5b;
-  font-family: NEXONFootballGothicBA1;
+  font-family: 'LineSeed-Bold';
   font-size: 44px;
-  font-weight: 500;
 `;
 
 const SecondGalleryContents = styled.div`
@@ -69,9 +68,8 @@ const SecondGallerySubTitle = styled.div`
   margin-bottom: 15%;
 
   color: #5b5b5b;
-  font-family: NEXONFootballGothicBA1;
-  font-size: 28px;
-  font-weight: 300;
+  font-family: 'LineSeed-Regular';
+  font-size: 26px;
   text-align: right;
 `;
 

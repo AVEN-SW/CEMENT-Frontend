@@ -47,15 +47,15 @@ const ThirdGalleryTitleContainer = styled.div`
 
 const ThirdGalleryTitle = styled.div`
   color: #5b5b5b;
-  font-family: NEXONFootballGothicBA1;
+  font-family: 'LineSeed-Bold';
   font-size: 44px;
   font-weight: 500;
 `;
 
 const ThirdGallerySubTitle = styled.div`
   color: #5b5b5b;
-  font-family: NEXONFootballGothicBA1;
-  font-size: 28px;
+  font-family: 'LineSeed-Regular';
+  font-size: 26px;
   font-weight: 300;
 `;
 
