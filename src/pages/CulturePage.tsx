@@ -28,7 +28,7 @@ const CulturePageSection = styled.div`
 
   width: 100%;
 
-  padding-top: 117px;
+  padding: 117px 422px 0 422px;
   margin-bottom: 420px;
 `;
 
@@ -38,7 +38,6 @@ const FlexContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 65%;
   height: 100%;
   margin-top: 100px;
 `;
@@ -49,7 +48,7 @@ const CultureTitleContainer = styled.div`
   align-items: center;
 
   width: 100%;
-  margin-bottom: 220px;
+  margin-bottom: 155px;
 `;
 
 const CultureTitle = styled.h1`
@@ -73,7 +72,7 @@ const CultureGalleryContainer = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 2900px;
+
 `;
 
 

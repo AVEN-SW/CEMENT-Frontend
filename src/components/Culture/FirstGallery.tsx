@@ -11,13 +11,13 @@ const FirstGallery = () => {
           전문성과 영향력을 갖췄다면 누구나 일을 주도할 수 있습니다.
         </FirstGallerySubTitle>
         <FirstGalleryImage
-          src="src/assets/first-gallery.png"
+          src="/assets/first-gallery.png"
           alt="첫 번째 갤러리 이미지"
         />
       </FirstGalleryTitleContainer>
       <FirstGallerySecondImage
-        src="src/assets/first-gallery2.png"
-        alt="첫 번째 갤러리 두 번쨰 이미지"
+        src="/assets/first-gallery2.png"
+        alt="첫 번째 갤러리 두 번째 이미지"
       />
     </FirstGalleryContainer>
   );
@@ -32,6 +32,7 @@ const FirstGalleryContainer = styled.div`
 
   width: 100%;
   height: 700px;
+  margin-bottom: 115px;
 `;
 
 const FirstGalleryTitleContainer = styled.div`
@@ -40,27 +41,25 @@ const FirstGalleryTitleContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
 
-  width: 60%;
   height: 100%;
 `;
 
 const FirstGalleryTitle = styled.div`
   color: #5b5b5b;
-  font-family: NEXONFootballGothicBA1;
+  font-family: 'LineSeed-Bold';
   font-size: 44px;
-  font-weight: 500;
 `;
 
 const FirstGallerySubTitle = styled.div`
   color: #5b5b5b;
-  font-family: NEXONFootballGothicBA1;
-  font-size: 28px;
-  font-weight: 300;
+  font-family: 'LineSeed-Regular';
+  font-size: 26px;
+  line-height: 1.8;
+  white-space: nowrap;
 `;
 
 const FirstGalleryImage = styled.img`
   width: 100%;
-  max-height: 50%;
 
   object-fit: cover;
 `;
