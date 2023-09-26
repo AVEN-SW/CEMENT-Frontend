@@ -97,7 +97,7 @@ const MainPageSeciton = styled.div`
   width: 100%;
   height: 1197px;
 
-  background: url('.//assets//main-image.png');
+  background: url('/assets/main-image.png');
 `;
 
 const FlexContainer = styled.div`
