@@ -27,11 +27,12 @@ export default FirstGallery;
 
 const FirstGalleryContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   width: 100%;
   height: 700px;
+  margin-bottom: 115px;
 `;
 
 const FirstGalleryTitleContainer = styled.div`
@@ -41,7 +42,6 @@ const FirstGalleryTitleContainer = styled.div`
   align-items: flex-start;
 
   height: 100%;
-  padding-right: 30px;
 `;
 
 const FirstGalleryTitle = styled.div`
@@ -54,11 +54,12 @@ const FirstGallerySubTitle = styled.div`
   color: #5b5b5b;
   font-family: 'LineSeed-Regular';
   font-size: 26px;
+  line-height: 1.8;
+  white-space: nowrap;
 `;
 
 const FirstGalleryImage = styled.img`
   width: 100%;
-  max-height: 50%;
 
   object-fit: cover;
 `;

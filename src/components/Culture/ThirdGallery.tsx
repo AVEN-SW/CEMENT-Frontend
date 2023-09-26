@@ -33,19 +33,20 @@ const ThirdGalleryContainer = styled.div`
   justify-content: space-between;
 
   width: 100%;
-  height: 790px;
 `;
 
 const ThirdGalleryTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
 
-  width: 60%;
+  padding-right: 30px;
 `;
 
 const ThirdGalleryTitle = styled.div`
+  margin-bottom: 55px;
+
   color: #5b5b5b;
   font-family: 'LineSeed-Bold';
   font-size: 44px;
@@ -53,10 +54,13 @@ const ThirdGalleryTitle = styled.div`
 `;
 
 const ThirdGallerySubTitle = styled.div`
+  margin-bottom: 110px;
+
   color: #5b5b5b;
   font-family: 'LineSeed-Regular';
   font-size: 26px;
   font-weight: 300;
+  line-height: 1.8;
 `;
 
 const ThirdGalleryImage = styled.img`
@@ -67,14 +71,9 @@ const ThirdGalleryImage = styled.img`
 `;
 
 const ThirdGallerySecondImageContainer = styled.div`
-  display: flex;
-  align-items: flex-end;
-
-  height: 100%;
+  padding-top: 290px;
 `;
 
 const ThirdGallerySecondImage = styled.img`
-  height: 60%;
-
   object-fit: cover;
 `;

@@ -17,7 +17,7 @@ const SecondGallery = () => {
           </SecondGallerySubTitle>
           <SecondGalleryImage
             src="/assets//second-gallery2.png"
-            alt="두 번째 갤러리 이미지"
+            alt="두 번째 갤러리 첫 번째 이미지"
           />
         </SecondGallerySubTitleContainer>
       </SecondGalleryContents>
@@ -30,17 +30,19 @@ export default SecondGallery;
 const SecondGalleryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
   width: 100%;
   height: 750px;
+  margin-bottom: 115px;
 `;
 
 const SecondGalleryTitle = styled.div`
   text-align: right;
 
   width: 100%;
+  margin-bottom: 60px;
 
   color: #5b5b5b;
   font-family: 'LineSeed-Bold';
@@ -49,7 +51,7 @@ const SecondGalleryTitle = styled.div`
 
 const SecondGalleryContents = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
 
   width: 100%;
@@ -58,19 +60,20 @@ const SecondGalleryContents = styled.div`
 const SecondGallerySubTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-end;
 
   width: 60%;
 `;
 
 const SecondGallerySubTitle = styled.div`
-  margin-bottom: 15%;
+  margin-bottom: 106px;
 
   color: #5b5b5b;
   font-family: 'LineSeed-Regular';
   font-size: 26px;
   text-align: right;
+  line-height: 1.8;
 `;
 
 const SecondGalleryImage = styled.img`
@@ -82,6 +85,7 @@ const SecondGalleryImage = styled.img`
 
 const SecondGallerySecondImage = styled.img`
   max-height: 60%;
+  padding-right: 30px;
 
   object-fit: cover;
 `;
