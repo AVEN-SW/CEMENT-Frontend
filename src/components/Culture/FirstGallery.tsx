@@ -27,7 +27,7 @@ export default FirstGallery;
 
 const FirstGalleryContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   width: 100%;
@@ -40,8 +40,8 @@ const FirstGalleryTitleContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
 
-  width: 60%;
   height: 100%;
+  padding-right: 30px;
 `;
 
 const FirstGalleryTitle = styled.div`
