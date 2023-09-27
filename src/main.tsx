@@ -9,6 +9,12 @@ import PeoplePage from './pages/PeoplePage.tsx';
 import BenefitPage from './pages/BenefitPage.tsx';
 import PortfolioPage from './pages/PortfolioPage.tsx';
 
+declare global {
+  interface Window {
+    naver: any;
+  }
+}
+
 const router = createBrowserRouter([
   {
     path: '/',
