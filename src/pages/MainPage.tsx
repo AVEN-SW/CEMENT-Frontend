@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import Map from '../components/Maps/Map';
 
 const instagramFeed = [
   '/assets//instagram.png',
@@ -62,7 +63,13 @@ const MainPage = () => {
       </PortfolioSection>
       <InstagramSection>
         {instagramFeed.map((thumbnail, index) => {
-          return <img src={thumbnail} alt={`인스타그램 피드 ${index + 1}`} />;
+          return (
+            <img
+              key={thumbnail + index}
+              src={thumbnail}
+              alt={`인스타그램 피드 ${index + 1}`}
+            />
+          );
         })}
       </InstagramSection>
       <ContactSection>
@@ -70,7 +77,9 @@ const MainPage = () => {
           <ContactTitle>CONTACT</ContactTitle>
           <ContactQrcode src="/assets//qr-code.svg" alt="qr코드" />
           <Contact>
-            <ContactMap alt="지도" />
+            <ContactMap>
+              <Map />
+            </ContactMap>
             <ContactInquriy>
               모든 문의
               <br />
@@ -271,7 +280,7 @@ const Contact = styled.div`
   width: 60%;
 `;
 
-const ContactMap = styled.img`
+const ContactMap = styled.div`
   width: 50%;
   height: 230px;
   background: #fff;
