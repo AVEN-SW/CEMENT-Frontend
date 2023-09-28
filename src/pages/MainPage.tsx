@@ -17,6 +17,7 @@ const instagramFeed = [
   '/assets//instagram13.png',
   '/assets//instagram14.png',
   '/assets//instagram15.png',
+  '/assets//instagram16.png',
 ];
 
 const MainPage = () => {
@@ -42,19 +43,19 @@ const MainPage = () => {
           <PortfolioTitle>PORTFOLIO</PortfolioTitle>
           <PortfolioImages>
             <PortfolioImage
-              src=".//assets//main-sample.png"
+              src="/assets/main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioImage
-              src=".//assets//main-sample.png"
+              src="/assets/main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioImage
-              src=".//assets//main-sample.png"
+              src="/assets/main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioImage
-              src=".//assets//main-sample.png"
+              src="/assets/main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioSignature>Signature</PortfolioSignature>
@@ -64,7 +65,7 @@ const MainPage = () => {
       <InstagramSection>
         {instagramFeed.map((thumbnail, index) => {
           return (
-            <img
+            <InstagramCard
               key={thumbnail + index}
               src={thumbnail}
               alt={`인스타그램 피드 ${index + 1}`}
@@ -104,9 +105,6 @@ export default MainPage;
 
 const MainPageSeciton = styled.div`
   width: 100%;
-  height: 1197px;
-
-  background: url('/assets/main-image.png');
 `;
 
 const FlexContainer = styled.div`
@@ -123,6 +121,14 @@ const MainTitleSection = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  width: 100%;
+  padding-top: 500px;
+  padding-bottom: 332px;
+
+  background: url('/assets/main-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const MainTitle = styled.div`
@@ -182,7 +188,8 @@ const PortfolioSection = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 968px;
+  padding-top: 125px;
+  padding-bottom: 270px;
   background: #e4932b;
 `;
 
@@ -193,10 +200,11 @@ const PortfolioContainer = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 60%;
 `;
 
 const PortfolioTitle = styled.div`
+  padding-bottom: 125px;
+
   color: #fff;
   font-size: 48px;
   font-weight: 400;
@@ -204,16 +212,15 @@ const PortfolioTitle = styled.div`
 
 const PortfolioImages = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   position: relative;
-  width: 70%;
+  margin-left: 60px;
 `;
 
 const PortfolioImage = styled.img`
-  width: 20%;
-
+  margin-right: 60px;
   object-fit: cover;
 `;
 
@@ -235,10 +242,16 @@ const PortfolioSignature = styled.div`
 
 const InstagramSection = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 
   width: 100%;
+`;
+
+const InstagramCard = styled.img`
+  // Responsive 방식으로 할지, 뷰포트의 너비를 유동적으로 따라가는 Fluid 방식으로 할지 논의 필요.
+  /* flex: 1 0 12.5%; */
+
+  width: 12.5%; // 우선 Fluid 방식을 적용함.
 `;
 
 const ContactSection = styled.div`
@@ -247,7 +260,8 @@ const ContactSection = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 742px;
+  padding-top: 145px;
+  padding-bottom: 120px;
   background: rgba(228, 147, 43, 0.16);
 `;
 
@@ -274,15 +288,16 @@ const ContactQrcode = styled.img`
 
 const Contact = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 
-  width: 60%;
+  width: 100%;
 `;
 
 const ContactMap = styled.div`
-  width: 50%;
+  min-width: 620px;
   height: 230px;
+  margin-left: 345px;
   background: #fff;
 `;
 
@@ -292,7 +307,8 @@ const ContactInquriy = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  padding-left: 50px;
+  padding-left: 25px;
+  padding-right: 600px;
 
   color: #000;
   font-family: Gmarket Sans;
