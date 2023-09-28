@@ -104,9 +104,6 @@ export default MainPage;
 
 const MainPageSeciton = styled.div`
   width: 100%;
-  height: 1197px;
-
-  background: url('/assets/main-image.png');
 `;
 
 const FlexContainer = styled.div`
@@ -123,6 +120,14 @@ const MainTitleSection = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  width: 100%;
+  padding-top: 500px;
+  padding-bottom: 332px;
+
+  background: url('/assets/main-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const MainTitle = styled.div`
