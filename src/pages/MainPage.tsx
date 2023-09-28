@@ -260,7 +260,8 @@ const ContactSection = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 742px;
+  padding-top: 145px;
+  padding-bottom: 120px;
   background: rgba(228, 147, 43, 0.16);
 `;
 
@@ -287,15 +288,16 @@ const ContactQrcode = styled.img`
 
 const Contact = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 
-  width: 60%;
+  width: 100%;
 `;
 
 const ContactMap = styled.div`
-  width: 50%;
+  min-width: 620px;
   height: 230px;
+  margin-left: 345px;
   background: #fff;
 `;
 
@@ -305,7 +307,8 @@ const ContactInquriy = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  padding-left: 50px;
+  padding-left: 25px;
+  padding-right: 600px;
 
   color: #000;
   font-family: Gmarket Sans;
