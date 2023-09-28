@@ -17,6 +17,7 @@ const instagramFeed = [
   '/assets//instagram13.png',
   '/assets//instagram14.png',
   '/assets//instagram15.png',
+  '/assets//instagram16.png',
 ];
 
 const MainPage = () => {
@@ -64,7 +65,7 @@ const MainPage = () => {
       <InstagramSection>
         {instagramFeed.map((thumbnail, index) => {
           return (
-            <img
+            <InstagramCard
               key={thumbnail + index}
               src={thumbnail}
               alt={`인스타그램 피드 ${index + 1}`}
@@ -241,10 +242,16 @@ const PortfolioSignature = styled.div`
 
 const InstagramSection = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 
   width: 100%;
+`;
+
+const InstagramCard = styled.img`
+  // Responsive 방식으로 할지, 뷰포트의 너비를 유동적으로 따라가는 Fluid 방식으로 할지 논의 필요.
+  /* flex: 1 0 12.5%; */
+
+  width: 12.5%; // 우선 Fluid 방식을 적용함.
 `;
 
 const ContactSection = styled.div`
