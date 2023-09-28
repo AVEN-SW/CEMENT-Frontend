@@ -42,19 +42,19 @@ const MainPage = () => {
           <PortfolioTitle>PORTFOLIO</PortfolioTitle>
           <PortfolioImages>
             <PortfolioImage
-              src=".//assets//main-sample.png"
+              src="/assets/main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioImage
-              src=".//assets//main-sample.png"
+              src="/assets/main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioImage
-              src=".//assets//main-sample.png"
+              src="/assets/main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioImage
-              src=".//assets//main-sample.png"
+              src="/assets/main-sample.png"
               alt="포트폴리오 이미지"
             />
             <PortfolioSignature>Signature</PortfolioSignature>
@@ -187,7 +187,8 @@ const PortfolioSection = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 968px;
+  padding-top: 125px;
+  padding-bottom: 270px;
   background: #e4932b;
 `;
 
@@ -198,10 +199,11 @@ const PortfolioContainer = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 60%;
 `;
 
 const PortfolioTitle = styled.div`
+  padding-bottom: 125px;
+
   color: #fff;
   font-size: 48px;
   font-weight: 400;
@@ -209,16 +211,15 @@ const PortfolioTitle = styled.div`
 
 const PortfolioImages = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   position: relative;
-  width: 70%;
+  margin-left: 60px;
 `;
 
 const PortfolioImage = styled.img`
-  width: 20%;
-
+  margin-right: 60px;
   object-fit: cover;
 `;
 
