@@ -58,7 +58,8 @@ const InfinityScrollTextContainer = styled.div`
   top: 0;
   width: 100%;
   height: 35px;
-  background: #e4932b;
+  background: linear-gradient(90deg, #fc5c7d 0%, #6a82fb 100%);
+
   z-index: 1001;
 `;
 
