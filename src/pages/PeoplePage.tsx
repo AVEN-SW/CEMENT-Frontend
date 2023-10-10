@@ -1,23 +1,23 @@
 import { styled } from 'styled-components';
 
 const memberImages = [
-  { src: '/assets//member.png', name: 'AVEN | 강효원' },
-  { src: '/assets//member3.png', name: 'CEMENT | 박용준' },
-  { src: '/assets//member5.png', name: 'AVEN | 장태희' },
-  { src: '/assets//member7.png', name: 'CEMENT | 임서진' },
-  { src: '/assets//member9.png', name: 'AVEN | 진영' },
-  { src: '/assets//member11.png', name: 'CEMENT | 김택준' },
-  { src: '/assets//member13.png', name: 'CEMENT | 이준희' },
+  { src: '/assets/member.png', name: 'AVEN | 강효원' },
+  { src: '/assets/member3.png', name: 'CEMENT | 박용준' },
+  { src: '/assets/member5.png', name: 'AVEN | 장태희' },
+  { src: '/assets/member7.png', name: 'CEMENT | 임서진' },
+  { src: '/assets/member9.png', name: 'AVEN | 진영' },
+  { src: '/assets/member11.png', name: 'CEMENT | 김택준' },
+  { src: '/assets/member13.png', name: 'CEMENT | 이준희' },
 ];
 
 const secondMemberImages = [
-  { src: '/assets//member2.png', name: 'CEMENT | 김현준' },
-  { src: '/assets//member4.png', name: 'CEMENT | 권범수' },
-  { src: '/assets//member6.png', name: 'CEMENT | 김민엽' },
-  { src: '/assets//member8.png', name: 'AVEN | 한승태' },
-  { src: '/assets//member10.png', name: 'CEMENT | 전윤서' },
-  { src: '/assets//member12.png', name: 'AVEN | 평현욱' },
-  { src: '/assets//member14.png', name: 'CEMENT | 시멘트' },
+  { src: '/assets/member2.png', name: 'CEMENT | 김현준' },
+  { src: '/assets/member4.png', name: 'CEMENT | 권범수' },
+  { src: '/assets/member6.png', name: 'CEMENT | 김민엽' },
+  { src: '/assets/member8.png', name: 'AVEN | 한승태' },
+  { src: '/assets/member10.png', name: 'CEMENT | 전윤서' },
+  { src: '/assets/member12.png', name: 'AVEN | 평현욱' },
+  { src: '/assets/member14.png', name: 'CEMENT | 시멘트' },
 ];
 
 const PeoplePage = () => {

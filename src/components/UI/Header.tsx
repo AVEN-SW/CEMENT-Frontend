@@ -31,7 +31,7 @@ const Header = ({ pathname }: Props) => {
       <FlexContainer>
         <LogoSection to="/">
           <img
-            src=".//assets//logo.png"
+            src="/assets/logo.png"
             alt="로고 이미지"
             style={{ width: '183px', height: '28px' }}
           />

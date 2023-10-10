@@ -2,22 +2,22 @@ import { styled } from 'styled-components';
 import Map from '../components/Maps/Map';
 
 const instagramFeed = [
-  '/assets//instagram.png',
-  '/assets//instagram2.png',
-  '/assets//instagram3.png',
-  '/assets//instagram4.png',
-  '/assets//instagram5.png',
-  '/assets//instagram6.png',
-  '/assets//instagram7.png',
-  '/assets//instagram8.png',
-  '/assets//instagram9.png',
-  '/assets//instagram10.png',
-  '/assets//instagram11.png',
-  '/assets//instagram12.png',
-  '/assets//instagram13.png',
-  '/assets//instagram14.png',
-  '/assets//instagram15.png',
-  '/assets//instagram16.png',
+  '/assets/instagram.png',
+  '/assets/instagram2.png',
+  '/assets/instagram3.png',
+  '/assets/instagram4.png',
+  '/assets/instagram5.png',
+  '/assets/instagram6.png',
+  '/assets/instagram7.png',
+  '/assets/instagram8.png',
+  '/assets/instagram9.png',
+  '/assets/instagram10.png',
+  '/assets/instagram11.png',
+  '/assets/instagram12.png',
+  '/assets/instagram13.png',
+  '/assets/instagram14.png',
+  '/assets/instagram15.png',
+  '/assets/instagram16.png',
 ];
 
 const MainPage = () => {
@@ -76,7 +76,7 @@ const MainPage = () => {
       <ContactSection>
         <ContactContainer>
           <ContactTitle>CONTACT</ContactTitle>
-          <ContactQrcode src="/assets//qr-code.svg" alt="qr코드" />
+          <ContactQrcode src="/assets/qr-code.svg" alt="qr코드" />
           <Contact>
             <ContactMap>
               <Map />

@@ -1,18 +1,18 @@
 import { styled } from 'styled-components';
 
 const portfolioImages = [
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
 ];
 
 const PortfolioPage = () => {
