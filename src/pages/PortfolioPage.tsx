@@ -48,7 +48,7 @@ export default PortfolioPage;
 const PortfolioPageSection = styled.div`
   width: 100%;
 
-  padding-top: 117px;
+  padding-top: 100px;
 `;
 
 const FlexContainer = styled.div`
