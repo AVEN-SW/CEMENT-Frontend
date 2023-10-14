@@ -81,15 +81,18 @@ const PeoplePage = () => {
           </PeopleArrangeSection>
         </PeopleContainer>
       </FlexContainer>
-      <ChangeButton onClick={handleClick} $teamState={isTeamChanged}>
-        <img
-          src={
-            isTeamChanged ? '/assets/logo-text.svg' : '/assets/aven-logo.svg'
-          }
-          alt="aven 로고"
-          style={{ paddingTop: '15px' }}
-        />
-      </ChangeButton>
+      <ChangeButtonContainer>
+        <ChangeButton onClick={handleClick} $teamState={isTeamChanged}>
+          <img src="/assets/button-logo-aven.svg" alt="aven 로고" />
+        </ChangeButton>
+        <ChangeButton
+          onClick={handleClick}
+          $teamState={!isTeamChanged}
+          style={{ backgroundColor: '#AF7122' }}
+        >
+          <img src="/assets/logo.svg" alt="cement 로고" style={{ zIndex: 1 }} />
+        </ChangeButton>
+      </ChangeButtonContainer>
     </PeoplePageSection>
   );
 };
@@ -97,6 +100,7 @@ const PeoplePage = () => {
 export default PeoplePage;
 
 const PeoplePageSection = styled.div<teamStyleProps>`
+  position: relative;
   display: flex;
   justify-content: center;
 
@@ -204,35 +208,28 @@ const MemberName = styled.div`
   text-align: left;
 `;
 
+const ChangeButtonContainer = styled.div`
+  position: absolute;
+
+  right: 76px;
+  top: 155px;
+`;
+
 const ChangeButton = styled.button<teamStyleProps>`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 
-  position: fixed;
-  top: 100px;
-  right: 93px;
+  width: 100px;
+  height: 100px;
+  margin-top: 40px;
+  border-radius: 49.5px;
+  background: #164299;
+  box-shadow: 3px 3px 8px 3px rgba(0, 0, 0, 0.25)
+    ${(props) => props.$teamState && 'inset'};
 
-  width: 92px;
-  height: 237px;
-  background: ${(props) => (props.$teamState ? '#e4932b' : '#164299')};
-  transition: background-color 0.3s ease;
+  opacity: ${(props) => props.$teamState && 0.45};
+  transition: all 0.3s ease;
 
   border: unset;
-  border-bottom-color: transparent;
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -65px;
-
-    width: 92px;
-    height: 92px;
-    background: ${(props) => (props.$teamState ? '#164299' : '#e4932b')};
-    transition: background-color 0.3s ease;
-
-    transform: rotate(45deg);
-  }
 `;
