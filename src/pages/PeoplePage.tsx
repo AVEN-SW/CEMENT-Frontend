@@ -25,6 +25,7 @@ const secondMemberImages = [
 
 type teamStyleProps = {
   $teamState: boolean;
+  $index?: number;
 };
 
 const PeoplePage = () => {
@@ -86,15 +87,16 @@ const PeoplePage = () => {
         <ChangeButton
           onClick={() => setIsTeamChanged(true)}
           $teamState={isTeamChanged}
+          $index={0}
         >
           <img src="/assets/button-logo-aven.svg" alt="aven 로고" />
         </ChangeButton>
         <ChangeButton
           onClick={() => setIsTeamChanged(false)}
           $teamState={!isTeamChanged}
-          style={{ backgroundColor: '#AF7122' }}
+          $index={1}
         >
-          <img src="/assets/logo.svg" alt="cement 로고" style={{ zIndex: 1 }} />
+          <img src="/assets/logo.svg" alt="cement 로고" />
         </ChangeButton>
       </ChangeButtonContainer>
     </PeoplePageSection>
@@ -227,12 +229,21 @@ const ChangeButton = styled.button<teamStyleProps>`
   height: 100px;
   margin-top: 40px;
   border-radius: 49.5px;
-  background: #164299;
+  background: ${(props) =>
+    props.$index === 0
+      ? props.$teamState
+        ? '#123477'
+        : '#164299'
+      : !props.$teamState
+      ? '#E4932B'
+      : 'rgba(175, 113, 34, 0.1)'};
   box-shadow: 3px 3px 8px 3px rgba(0, 0, 0, 0.25)
     ${(props) => props.$teamState && 'inset'};
-
-  opacity: ${(props) => props.$teamState && 0.45};
   transition: all 0.3s ease;
 
   border: unset;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
