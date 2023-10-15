@@ -6,9 +6,10 @@ const memberImages = [
   { src: '/assets/member3.png', name: 'CEMENT | 권범수' },
   { src: '/assets/member5.png', name: 'CEMENT | 김택준' },
   { src: '/assets/member7.png', name: 'CEMENT | 김민엽' },
-  // { src: '/assets/member9.png', name: 'AVEN | 진영' },
-  // { src: '/assets/member11.png', name: 'CEMENT | 김택준' },
-  // { src: '/assets/member13.png', name: 'CEMENT | 이준희' },
+  { src: '/assets/member9.png', name: 'AVEN | 박용준' },
+  { src: '/assets/member11.png', name: 'AVEN | 진영' },
+  { src: '/assets/member13.png', name: 'AVEN | 권범수' },
+  { src: '/assets/member15.png', name: 'AVEN | 평현욱' },
 ];
 
 const secondMemberImages = [
@@ -16,9 +17,10 @@ const secondMemberImages = [
   { src: '/assets/member4.png', name: 'CEMENT | 전윤서' },
   { src: '/assets/member6.png', name: 'CEMENT | 이준희' },
   { src: '/assets/member8.png', name: 'CEMENT | 임서진' },
-  // { src: '/assets/member10.png', name: 'CEMENT | 전윤서' },
-  // { src: '/assets/member12.png', name: 'AVEN | 평현욱' },
-  // { src: '/assets/member14.png', name: 'CEMENT | 시멘트' },
+  { src: '/assets/member10.png', name: 'AVEN | 김현준' },
+  { src: '/assets/member12.png', name: 'AVEN | 강효원' },
+  { src: '/assets/member14.png', name: 'AVEN | 한승태' },
+  { src: '/assets/member16.png', name: 'AVEN | 김윤기' },
 ];
 
 type teamStyleProps = {
@@ -28,9 +30,25 @@ type teamStyleProps = {
 const PeoplePage = () => {
   const [isTeamChanged, setIsTeamChanged] = useState(false);
 
-  const handleClick = () => {
-    setIsTeamChanged((prev) => !prev);
+  const memberMaping = (list: Array<{ src: string; name: string }>) => {
+    const memberList = list;
+
+    return memberList.map((member, idx) => {
+      if (isTeamChanged && idx < 4) return;
+      else if (!isTeamChanged && idx > 3) return;
+      return (
+        <MemberCard key={member.src}>
+          <MemberImage src={member.src} alt={`멤버 프로필 사진 ${idx + 1}`} />
+          <MemberTitle>"자신만의 문구"</MemberTitle>
+          <MemberName>{member.name}</MemberName>
+        </MemberCard>
+      );
+    });
   };
+
+  const firstMembers = memberMaping(memberImages);
+
+  const secondMembers = memberMaping(secondMemberImages);
 
   return (
     <PeoplePageSection $teamState={isTeamChanged}>
@@ -43,50 +61,36 @@ const PeoplePage = () => {
           </PeopleSubTitle>
         </PeopleTitleContainer>
         <LogoContainer>
+          {isTeamChanged || (
+            <img
+              src="/assets/logo.svg"
+              alt="로고 svg"
+              style={{ paddingRight: '16px' }}
+            />
+          )}
           <img
-            src="/assets/logo.svg"
-            alt="로고 svg"
-            style={{ paddingRight: '16px' }}
+            src={
+              isTeamChanged ? '/assets/aven-logo.svg' : '/assets/logo-text.svg'
+            }
+            alt="로고 텍스트 svg"
           />
-          <img src="/assets/logo-text.svg" alt="로고 텍스트 svg" />
         </LogoContainer>
         <PeopleContainer>
-          <PeopleArrangeSection style={{ paddingRight: '90px' }}>
-            {memberImages.map((member, idx) => {
-              return (
-                <MemberCard key={member.src}>
-                  <MemberImage
-                    src={member.src}
-                    alt={`멤버 프로필 사진 ${idx + 1}`}
-                  />
-                  <MemberTitle>"자신만의 문구"</MemberTitle>
-                  <MemberName>{member.name}</MemberName>
-                </MemberCard>
-              );
-            })}
+          <PeopleArrangeSection style={{ paddingRight: '160px' }}>
+            {firstMembers}
           </PeopleArrangeSection>
-          <PeopleArrangeSection>
-            {secondMemberImages.map((member, idx) => {
-              return (
-                <MemberCard key={member.src}>
-                  <MemberImage
-                    src={member.src}
-                    alt={`멤버 프로필 사진 ${idx + 1}`}
-                  />
-                  <MemberTitle>타이틀</MemberTitle>
-                  <MemberName>{member.name}</MemberName>
-                </MemberCard>
-              );
-            })}
-          </PeopleArrangeSection>
+          <PeopleArrangeSection>{secondMembers}</PeopleArrangeSection>
         </PeopleContainer>
       </FlexContainer>
       <ChangeButtonContainer>
-        <ChangeButton onClick={handleClick} $teamState={isTeamChanged}>
+        <ChangeButton
+          onClick={() => setIsTeamChanged(true)}
+          $teamState={isTeamChanged}
+        >
           <img src="/assets/button-logo-aven.svg" alt="aven 로고" />
         </ChangeButton>
         <ChangeButton
-          onClick={handleClick}
+          onClick={() => setIsTeamChanged(false)}
           $teamState={!isTeamChanged}
           style={{ backgroundColor: '#AF7122' }}
         >
@@ -117,8 +121,9 @@ const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
+  width: 880px;
   height: 100%;
   margin-top: 200px;
 `;
@@ -128,16 +133,11 @@ const PeopleTitleContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  width: 100%;
   margin-bottom: 77px;
 `;
 
 const PeopleTitle = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  padding-right: 337px;
+  margin-right: 271px;
 
   color: #fff;
   font-family: Gmarket Sans;
@@ -146,10 +146,6 @@ const PeopleTitle = styled.div`
 `;
 
 const PeopleSubTitle = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
   color: #fff;
   font-family: 'LineSeed-Bold';
   font-size: 38px;
@@ -157,6 +153,10 @@ const PeopleSubTitle = styled.div`
 `;
 
 const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
   margin-bottom: 77px;
 `;
 
@@ -183,6 +183,9 @@ const MemberCard = styled.div`
 `;
 
 const MemberImage = styled.img`
+  width: 360px;
+  height: 500px;
+
   margin-bottom: 20px;
 
   object-fit: cover;
@@ -193,7 +196,7 @@ const MemberTitle = styled.div`
   padding-bottom: 34px;
 
   color: #fff;
-  font-family: 'LineSeed-Bold';
+  font-family: 'LineSeed-Regular';
   font-size: 55px;
   text-align: left;
 `;
