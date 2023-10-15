@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
-import InfinityScrollText from '../InfinityScroll/InfinityScrollText';
 
 interface Props {
   pathname: string;
+  isTeamChanged: boolean;
 }
 
 type headerStyleProps = {
@@ -12,7 +12,7 @@ type headerStyleProps = {
   $pathname: string;
 };
 
-const Header = ({ pathname }: Props) => {
+const Header = ({ pathname, isTeamChanged }: Props) => {
   const [scrollLocation, setScrollLocation] = useState(0);
 
   const updateScroll = () => {
@@ -27,11 +27,10 @@ const Header = ({ pathname }: Props) => {
 
   return (
     <HeaderSection $scroll={scrollLocation} $pathname={pathname}>
-      <InfinityScrollText />
       <FlexContainer>
         <LogoSection to="/">
           <img
-            src="/assets/logo.png"
+            src={isTeamChanged ? '/assets/blue-logo.svg' : '/assets/logo.svg'}
             alt="로고 이미지"
             style={{ width: '183px', height: '28px' }}
           />
