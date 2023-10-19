@@ -111,10 +111,10 @@ const PeoplePage = () => {
       <FlexContainer>
         <PeopleTitleContainer>
           <PeopleTitle>People</PeopleTitle>
-          <PeopleSubTitle>
-            성장을 위한 가장 확실한 방법은 <br />
-            뛰어난 동료들 사이에 있는 것입니다.
-          </PeopleSubTitle>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <SmallTitle>We are</SmallTitle>
+            <PeopleSubTitle>Team Cement</PeopleSubTitle>
+          </div>
         </PeopleTitleContainer>
         <LogoContainer>
           <img
@@ -151,7 +151,7 @@ const PeoplePage = () => {
           <img src="/assets/button-logo-cement.svg" alt="cement 로고" />
         </ChangeButton>
       </ChangeButtonContainer>
-      {ReactDOM.createPortal(
+      {/* {ReactDOM.createPortal(
         <>
           {isAnimationStarted && (
             <WaveContainer
@@ -174,37 +174,19 @@ const PeoplePage = () => {
                   />
                 </defs>
                 <g className="parallax">
-                  <use
-                    xlinkHref="#gentle-wave"
-                    x="48"
-                    y="0"
-                    fill="rgba(22,66,153,0.7)"
-                  />
-                  <use
-                    xlinkHref="#gentle-wave"
-                    x="48"
-                    y="3"
-                    fill="rgba(22,66,153,0.5)"
-                  />
-                  <use
-                    xlinkHref="#gentle-wave"
-                    x="48"
-                    y="5"
-                    fill="rgba(22,66,153,0.3)"
-                  />
-                  <use
-                    xlinkHref="#gentle-wave"
-                    x="48"
-                    y="7"
-                    fill="rgba(22,66,153,0.9)"
-                  />
+                  <use xlinkHref="#gentle-wave" x="48" y="0" />
+                  <use xlinkHref="#gentle-wave" x="48" y="3" />
+                  <use xlinkHref="#gentle-wave" x="48" y="5" />
+                  <use xlinkHref="#gentle-wave" x="48" y="7" />
+                  <use xlinkHref="#gentle-wave" x="48" y="9" />
+                  <use xlinkHref="#gentle-wave" x="48" y="11" />
                 </g>
               </Wave>
             </WaveContainer>
           )}
         </>,
         document.getElementById('wave') as HTMLElement,
-      )}
+      )} */}
     </PeoplePageSection>
   );
 };
@@ -216,15 +198,14 @@ const PeoplePageSection = styled.div<teamStyleProps>`
   display: flex;
   justify-content: center;
 
-  position: relative;
-
   width: 100%;
   padding-top: 100px;
   padding-bottom: 350px;
-  background: ${(props) => (props.$teamState ? '#164299' : '#e4932b')};
 `;
 
 const FlexContainer = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -233,6 +214,7 @@ const FlexContainer = styled.div`
   width: 880px;
   height: 100%;
   margin-top: 200px;
+  z-index: 2;
 `;
 
 const PeopleTitleContainer = styled.div`
@@ -246,17 +228,21 @@ const PeopleTitleContainer = styled.div`
 const PeopleTitle = styled.div`
   margin-right: 271px;
 
-  color: #fff;
+  color: #000;
   font-family: Gmarket Sans;
   font-size: 64px;
   font-weight: 700;
 `;
 
 const PeopleSubTitle = styled.div`
-  color: #fff;
+  color: #000;
   font-family: 'LineSeed-Bold';
-  font-size: 38px;
+  font-size: 64px;
   white-space: nowrap;
+`;
+
+const SmallTitle = styled(PeopleSubTitle)`
+  font-size: 24px;
 `;
 
 const LogoContainer = styled.div`
@@ -292,6 +278,7 @@ const MemberCard = styled.div`
 const MemberImage = styled.img`
   width: 360px;
   height: 500px;
+  border-radius: 18px;
 
   margin-bottom: 20px;
 
@@ -302,7 +289,7 @@ const MemberTitle = styled.div`
   width: 100%;
   padding-bottom: 34px;
 
-  color: #fff;
+  color: #000;
   font-family: 'LineSeed-Regular';
   font-size: 55px;
   text-align: left;
@@ -311,7 +298,7 @@ const MemberTitle = styled.div`
 const MemberName = styled.div`
   width: 100%;
 
-  color: #fff;
+  color: #000;
   font-family: NanumGothicOTF;
   font-size: 32px;
   font-weight: 400;
@@ -362,9 +349,9 @@ const WaveContainer = styled.div<teamStyleProps>`
   width: 100%;
   height: 100%;
 
-  z-index: 1000;
+  z-index: 1;
 
-  animation: ${(props) => props.$animationState && change} 6s ease-out;
+  animation: ${(props) => props.$animationState && change} 6s ease;
 `;
 
 const WaveBody = styled.div<{ $buttonState: boolean }>`
@@ -379,7 +366,7 @@ const Wave = styled.svg<{ $teamState: boolean }>`
   transform: rotate(180deg);
 
   .parallax > use {
-    animation: ${rotate} 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+    animation: ${rotate} 10s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
     margin-top: 50vh;
   }
   .parallax > use:nth-child(1) {
@@ -392,17 +379,29 @@ const Wave = styled.svg<{ $teamState: boolean }>`
     animation-delay: -4s;
     animation-duration: 5s;
     fill: ${(props) =>
-      props.$teamState ? 'rgba(228,147,43,0.5)' : 'rgba(22,66,153,0.5)'};
+      props.$teamState ? 'rgba(228,147,43,0.6)' : 'rgba(22,66,153,0.6)'};
   }
   .parallax > use:nth-child(3) {
     animation-delay: -6s;
     animation-duration: 7s;
     fill: ${(props) =>
-      props.$teamState ? 'rgba(228,147,43,0.3)' : 'rgba(22,66,153,0.3)'};
+      props.$teamState ? 'rgba(228,147,43,0.5)' : 'rgba(22,66,153,0.5)'};
   }
   .parallax > use:nth-child(4) {
     animation-delay: -8s;
     animation-duration: 9s;
+    fill: ${(props) =>
+      props.$teamState ? 'rgba(228,147,43,0.4)' : 'rgba(22,66,153,0.4)'};
+  }
+  .parallax > use:nth-child(5) {
+    animation-delay: -10s;
+    animation-duration: 11s;
+    fill: ${(props) =>
+      props.$teamState ? 'rgba(228,147,43,0.3)' : 'rgba(22,66,153,0.3)'};
+  }
+  .parallax > use:nth-child(6) {
+    animation-delay: -12s;
+    animation-duration: 13s;
     fill: ${(props) =>
       props.$teamState ? 'rgba(228,147,43,0.9)' : 'rgba(22,66,153,0.9)'};
   }
