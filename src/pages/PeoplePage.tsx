@@ -131,7 +131,7 @@ const PeoplePage = () => {
           <PeopleArrangeSection>{secondMembers}</PeopleArrangeSection>
         </PeopleContainer>
       </FlexContainer>
-      <ChangeButtonContainer>
+      {/* <ChangeButtonContainer>
         <ChangeButton
           onClick={() => handleClick(true)}
           $teamState={isTeamChanged}
@@ -150,7 +150,7 @@ const PeoplePage = () => {
         >
           <img src="/assets/button-logo-cement.svg" alt="cement 로고" />
         </ChangeButton>
-      </ChangeButtonContainer>
+      </ChangeButtonContainer> */}
       {/* {ReactDOM.createPortal(
         <>
           {isAnimationStarted && (
