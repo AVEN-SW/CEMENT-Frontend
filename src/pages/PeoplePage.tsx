@@ -1,100 +1,72 @@
-import { Dispatch, SetStateAction, useState } from 'react';
-import ReactDOM from 'react-dom';
-import { useOutletContext } from 'react-router-dom';
-import { keyframes, styled } from 'styled-components';
+import { useState } from 'react';
+import { styled } from 'styled-components';
+import CurrentTeamStatusBar from '../components/UI/CurrentTeamStatusBar';
 
-const memberImages = [
+const cementMemberImages = [
   { src: '/assets/member.png', name: 'CEMENT | 박용준' },
-  { src: '/assets/member3.png', name: 'CEMENT | 권범수' },
-  { src: '/assets/member5.png', name: 'CEMENT | 김택준' },
-  { src: '/assets/member7.png', name: 'CEMENT | 김민엽' },
-  { src: '/assets/member9.png', name: 'AVEN | 박용준' },
-  { src: '/assets/member11.png', name: 'AVEN | 진영' },
-  { src: '/assets/member13.png', name: 'AVEN | 권범수' },
-  { src: '/assets/member15.png', name: 'AVEN | 평현욱' },
+  { src: '/assets/member2.png', name: 'CEMENT | 김현준' },
+  { src: '/assets/member3.png', name: 'CEMENT | 이준희' },
+  { src: '/assets/member4.png', name: 'CEMENT | 김민엽' },
+  { src: '/assets/member5.png', name: 'CEMENT | 백경인' },
+  { src: '/assets/member6.png', name: 'CEMENT | 권범수' },
+  { src: '/assets/member7.png', name: 'CEMENT | 임서진' },
+  { src: '/assets/member8.png', name: 'CEMENT | 김택준' },
+  { src: '/assets/member9.png', name: 'CEMENT | 주예은' },
+  { src: '/assets/who-is-next.png', name: 'CEMENT | 시멘트' },
 ];
 
 const secondMemberImages = [
-  { src: '/assets/member2.png', name: 'CEMENT | 김현준' },
-  { src: '/assets/member4.png', name: 'CEMENT | 전윤서' },
-  { src: '/assets/member6.png', name: 'CEMENT | 이준희' },
-  { src: '/assets/member8.png', name: 'CEMENT | 임서진' },
-  { src: '/assets/member10.png', name: 'AVEN | 김현준' },
-  { src: '/assets/member12.png', name: 'AVEN | 강효원' },
-  { src: '/assets/member14.png', name: 'AVEN | 한승태' },
-  { src: '/assets/member16.png', name: 'AVEN | 김윤기' },
+  { src: '/assets/member11.png', name: 'CELEB | 오유민' },
+  { src: '/assets/member12.png', name: 'CELEB | 임현우' },
+  { src: '/assets/member13.png', name: 'CELEB | 백경인' },
+  { src: '/assets/member14.png', name: 'CELEB | 김현준' },
 ];
 
-type teamStyleProps = {
-  $teamState: boolean;
-  $buttonState?: boolean;
-  $animationState?: boolean;
-  $index?: number;
-};
-
-interface PeopleProps {
-  isTeamChanged: boolean;
-  setIsTeamChanged: Dispatch<SetStateAction<boolean>>;
-}
-
-const rotate = keyframes`
-    0% {
-        transform: translate3d(-90px, 0, 0);
-    }
-    100% {
-        transform: translate3d(85px, 0, 0);
-    }
-`;
-
-const change = keyframes`
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(150vh);
-    opacity: 1;
-  }
-  55% {
-    transform: translateY(150vh);
-    opacity: 1;
-  }
-  99% {
-    transform: translateY(150vh);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-`;
-
 const PeoplePage = () => {
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
-  const [isAnimationStarted, setIsAnimationStarted] = useState(false);
+  // const { isTeamChanged, setIsTeamChanged } = useOutletContext<PeopleProps>();
+  const [animationTrigger, setAnimationTrigger] = useState(false);
+  const [isTeamChanged, setIsTeamChanged] = useState(false);
 
-  const { isTeamChanged, setIsTeamChanged } = useOutletContext<PeopleProps>();
-
-  const handleClick = (teamChanged: boolean) => {
-    setIsButtonClicked(teamChanged);
-    setIsAnimationStarted(true);
-    setTimeout(() => {
-      setIsTeamChanged(teamChanged);
-    }, 3000);
-    setTimeout(() => {
-      setIsAnimationStarted(false);
-    }, 6000);
+  const handleClick = () => {
+    setAnimationTrigger(true);
+    setTimeout(
+      () => {
+        setIsTeamChanged((prev) => !prev);
+      },
+      isTeamChanged ? 1300 : 2000,
+    );
+    setTimeout(
+      () => {
+        setAnimationTrigger(false);
+      },
+      isTeamChanged ? 1350 : 2050,
+    );
   };
 
-  const memberMaping = (list: Array<{ src: string; name: string }>) => {
-    const memberList = list;
+  console.log(
+    `animationTrigger : ${animationTrigger}`,
+    `isTeamChanged : ${isTeamChanged}`,
+  );
 
-    return memberList.map((member, idx) => {
-      if (isTeamChanged && idx < 4) return;
-      else if (!isTeamChanged && idx > 3) return;
+  const memberMaping = (
+    list: Array<{ src: string; name: string }>,
+    second: boolean,
+  ) => {
+    return list.map((member, idx) => {
+      if (!second && idx != 0 && idx % 2 != 0) return;
+      else if (second && (idx == 0 || idx % 2 == 0)) return;
       return (
         <MemberCard key={member.src}>
-          <MemberImage src={member.src} alt={`멤버 프로필 사진 ${idx + 1}`} />
+          <MemberImageContainer>
+            <MemberImage
+              src={member.src}
+              alt={`멤버 프로필 사진 ${idx + 1}`}
+              $delay={(idx * 2) / 10}
+              $idx={idx}
+              $isTeamChanged={isTeamChanged}
+              $animationTrigger={animationTrigger}
+            />
+          </MemberImageContainer>
           <MemberTitle>"자신만의 문구"</MemberTitle>
           <MemberName>{member.name}</MemberName>
         </MemberCard>
@@ -102,28 +74,82 @@ const PeoplePage = () => {
     });
   };
 
-  const firstMembers = memberMaping(memberImages);
+  const firstMembers = memberMaping(
+    isTeamChanged ? secondMemberImages : cementMemberImages,
+    false,
+  );
 
-  const secondMembers = memberMaping(secondMemberImages);
+  const secondMembers = memberMaping(
+    isTeamChanged ? secondMemberImages : cementMemberImages,
+    true,
+  );
 
   return (
-    <PeoplePageSection $teamState={isTeamChanged}>
+    <PeoplePageSection>
       <FlexContainer>
         <PeopleTitleContainer>
           <PeopleTitle>People</PeopleTitle>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <SmallTitle>We are</SmallTitle>
-            <PeopleSubTitle>Team Cement</PeopleSubTitle>
+            <SmallTitle>I AM</SmallTitle>
+            <PeopleSubTitleContainer>
+              <TeamChangeButton
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="22"
+                viewBox="0 0 18 22"
+                fill="none"
+                $left={true}
+                $isTeamChanged={isTeamChanged}
+                $animationTrigger={animationTrigger}
+                onClick={handleClick}
+              >
+                <path
+                  d="M18 11L9.2855e-07 21.3923L1.83707e-06 0.607695L18 11Z"
+                  fill="black"
+                />
+              </TeamChangeButton>
+              <HiddenContainer
+                $isTeamChanged={isTeamChanged}
+                $animationTrigger={animationTrigger}
+              >
+                <PeopleSubTitle
+                  $isTeamChanged={isTeamChanged}
+                  $animationTrigger={animationTrigger}
+                  $left={true}
+                >
+                  Celebrity
+                </PeopleSubTitle>
+                <PeopleSubTitle
+                  $isTeamChanged={isTeamChanged}
+                  $animationTrigger={animationTrigger}
+                >
+                  Team Cement
+                </PeopleSubTitle>
+              </HiddenContainer>
+              <TeamChangeButton
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="22"
+                viewBox="0 0 18 22"
+                fill="none"
+                $isTeamChanged={isTeamChanged}
+                $animationTrigger={animationTrigger}
+                onClick={handleClick}
+              >
+                <path
+                  d="M18 11L9.2855e-07 21.3923L1.83707e-06 0.607695L18 11Z"
+                  fill="black"
+                />
+              </TeamChangeButton>
+            </PeopleSubTitleContainer>
           </div>
         </PeopleTitleContainer>
         <LogoContainer>
-          <img
-            src={
-              isTeamChanged ? '/assets/aven-logo.svg' : '/assets/logo-text.svg'
-            }
-            alt="로고 텍스트 svg"
-          />
+          <img src="/assets/logo-text.svg" alt="로고 텍스트 svg" />
         </LogoContainer>
+        <TeamChangeSection>
+          <CurrentTeamStatusBar isTeamChanged={isTeamChanged} />
+        </TeamChangeSection>
         <PeopleContainer>
           <PeopleArrangeSection style={{ paddingRight: '160px' }}>
             {firstMembers}
@@ -131,69 +157,13 @@ const PeoplePage = () => {
           <PeopleArrangeSection>{secondMembers}</PeopleArrangeSection>
         </PeopleContainer>
       </FlexContainer>
-      {/* <ChangeButtonContainer>
-        <ChangeButton
-          onClick={() => handleClick(true)}
-          $teamState={isTeamChanged}
-          $buttonState={isButtonClicked}
-          $index={0}
-          disabled={isButtonClicked}
-        >
-          <img src="/assets/button-logo-aven.svg" alt="aven 로고" />
-        </ChangeButton>
-        <ChangeButton
-          onClick={() => handleClick(false)}
-          $teamState={!isTeamChanged}
-          $buttonState={!isButtonClicked}
-          $index={1}
-          disabled={!isButtonClicked}
-        >
-          <img src="/assets/button-logo-cement.svg" alt="cement 로고" />
-        </ChangeButton>
-      </ChangeButtonContainer> */}
-      {/* {ReactDOM.createPortal(
-        <>
-          {isAnimationStarted && (
-            <WaveContainer
-              $teamState={isTeamChanged}
-              $animationState={isAnimationStarted}
-            >
-              <WaveBody $buttonState={isButtonClicked} />
-              <Wave
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                viewBox="0 24 150 28"
-                preserveAspectRatio="none"
-                shapeRendering="auto"
-                $teamState={isTeamChanged}
-              >
-                <defs>
-                  <path
-                    id="gentle-wave"
-                    d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-                  />
-                </defs>
-                <g className="parallax">
-                  <use xlinkHref="#gentle-wave" x="48" y="0" />
-                  <use xlinkHref="#gentle-wave" x="48" y="3" />
-                  <use xlinkHref="#gentle-wave" x="48" y="5" />
-                  <use xlinkHref="#gentle-wave" x="48" y="7" />
-                  <use xlinkHref="#gentle-wave" x="48" y="9" />
-                  <use xlinkHref="#gentle-wave" x="48" y="11" />
-                </g>
-              </Wave>
-            </WaveContainer>
-          )}
-        </>,
-        document.getElementById('wave') as HTMLElement,
-      )} */}
     </PeoplePageSection>
   );
 };
 
 export default PeoplePage;
 
-const PeoplePageSection = styled.div<teamStyleProps>`
+const PeoplePageSection = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -234,14 +204,86 @@ const PeopleTitle = styled.div`
   font-weight: 700;
 `;
 
-const PeopleSubTitle = styled.div`
+const PeopleSubTitleContainer = styled.div`
+  position: relative;
+
   color: #000;
   font-family: 'LineSeed-Bold';
   font-size: 64px;
   white-space: nowrap;
 `;
 
-const SmallTitle = styled(PeopleSubTitle)`
+const HiddenContainer = styled.div<{
+  $isTeamChanged: boolean;
+  $animationTrigger: boolean;
+}>`
+  display: flex;
+  width: ${(props) =>
+    props.$isTeamChanged || props.$animationTrigger ? '288px' : '440px'};
+  transition: ${(props) => {
+    if (!props.$animationTrigger) return '';
+    else return 'width 0.6s ease-in-out 0.6s';
+  }};
+
+  overflow: hidden;
+`;
+
+const PeopleSubTitle = styled.div<{
+  $isTeamChanged: boolean;
+  $animationTrigger: boolean;
+  $left?: boolean;
+}>`
+  ${(props) => {
+    if (!props.$animationTrigger && !props.$isTeamChanged)
+      return 'transform: translateX(-290px)';
+    else if (props.$animationTrigger && !props.$isTeamChanged && !props.$left)
+      return 'transform: translateX(0px)';
+    else if (!props.$animationTrigger && props.$isTeamChanged && props.$left)
+      return 'transform: translateX(0px)';
+    else if (props.$animationTrigger && props.$isTeamChanged && props.$left)
+      return 'transform: translateX(-290px)';
+  }};
+
+  opacity: ${(props) => {
+    if (props.$animationTrigger && !props.$left) return 0;
+    else if (!props.$animationTrigger && !props.$isTeamChanged && props.$left)
+      return 0;
+  }};
+
+  transition: all 0.6s ease-in-out
+    ${(props) => {
+      if (props.$animationTrigger && !props.$isTeamChanged && props.$left)
+        return '2s';
+    }};
+`;
+
+const TeamChangeButton = styled.svg<{
+  $isTeamChanged: boolean;
+  $animationTrigger: boolean;
+  $left?: boolean;
+}>`
+  position: absolute;
+  cursor: pointer;
+
+  ${(props) => (props.$left ? 'left: -45px' : 'right: -45px')};
+  bottom: 30px;
+  ${(props) => (props.$left ? 'transform: rotate(180deg)' : '')};
+
+  opacity: ${(props) => {
+    if ((props.$animationTrigger || props.$isTeamChanged) && !props.$left)
+      return 0;
+    else if (!props.$isTeamChanged && props.$left) return 0;
+    else if (props.$animationTrigger && props.$isTeamChanged && props.$left)
+      return 0;
+  }};
+
+  transition: opacity 0.6s ease-in-out
+    ${(props) => {
+      if (!props.$animationTrigger && !props.$left) return '0.2s';
+    }};
+`;
+
+const SmallTitle = styled(PeopleSubTitleContainer)`
   font-size: 24px;
 `;
 
@@ -250,7 +292,15 @@ const LogoContainer = styled.div`
   justify-content: center;
 
   width: 100%;
-  margin-bottom: 77px;
+  margin-bottom: 27px;
+`;
+
+const TeamChangeSection = styled.div`
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  margin-bottom: 44px;
 `;
 
 const PeopleContainer = styled.div`
@@ -272,15 +322,32 @@ const MemberCard = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  margin-bottom: 66px;
+  margin-bottom: 110px;
 `;
 
-const MemberImage = styled.img`
+const MemberImageContainer = styled.div`
+  overflow-y: hidden;
+  margin-bottom: 57px;
+`;
+
+const MemberImage = styled.img<{
+  $delay: number;
+  $idx: number;
+  $isTeamChanged: boolean;
+  $animationTrigger: boolean;
+}>`
   width: 360px;
-  height: 500px;
   border-radius: 18px;
 
-  margin-bottom: 20px;
+  transform: translateY(678px);
+
+  ${(props) => {
+    if (props.$animationTrigger) return 'opacity: 0';
+    else return 'transform: translateY(0px); opacity: 1';
+  }};
+
+  transition: all ${(props) => (props.$idx > 3 ? '0.2s' : '0.7s')} ease
+    ${(props) => props.$delay}s;
 
   object-fit: cover;
 `;
@@ -290,7 +357,7 @@ const MemberTitle = styled.div`
   padding-bottom: 34px;
 
   color: #000;
-  font-family: 'LineSeed-Regular';
+  font-family: 'LineSeed-Bold';
   font-size: 55px;
   text-align: left;
 `;
@@ -303,106 +370,4 @@ const MemberName = styled.div`
   font-size: 32px;
   font-weight: 400;
   text-align: left;
-`;
-
-const ChangeButtonContainer = styled.div`
-  position: fixed;
-
-  right: 76px;
-  top: 155px;
-`;
-
-const ChangeButton = styled.button<teamStyleProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100px;
-  height: 100px;
-  margin-top: 40px;
-  border-radius: 49.5px;
-  background: ${(props) =>
-    props.$index === 0
-      ? props.$buttonState
-        ? '#123477'
-        : '#164299'
-      : !props.$buttonState
-      ? '#E4932B'
-      : '#AF7122'};
-  box-shadow: 3px 4px 4px 3px rgba(0, 0, 0, 0.25)
-    ${(props) => props.$buttonState && 'inset'};
-
-  opacity: ${(props) => props.$index != 0 && props.$buttonState && 0.45};
-
-  transition: all 0.3s ease;
-
-  border: unset;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const WaveContainer = styled.div<teamStyleProps>`
-  position: fixed;
-  top: -150vh;
-  width: 100%;
-  height: 100%;
-
-  z-index: 1;
-
-  animation: ${(props) => props.$animationState && change} 6s ease;
-`;
-
-const WaveBody = styled.div<{ $buttonState: boolean }>`
-  width: 100%;
-  height: 100vh;
-  background: ${(props) => (props.$buttonState ? '#164299' : '#E4932B')};
-`;
-
-const Wave = styled.svg<{ $teamState: boolean }>`
-  width: 100%;
-  height: 20vh;
-  transform: rotate(180deg);
-
-  .parallax > use {
-    animation: ${rotate} 10s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-    margin-top: 50vh;
-  }
-  .parallax > use:nth-child(1) {
-    animation-delay: -2s;
-    animation-duration: 3s;
-    fill: ${(props) =>
-      props.$teamState ? 'rgba(228,147,43,0.7)' : 'rgba(22,66,153,0.7)'};
-  }
-  .parallax > use:nth-child(2) {
-    animation-delay: -4s;
-    animation-duration: 5s;
-    fill: ${(props) =>
-      props.$teamState ? 'rgba(228,147,43,0.6)' : 'rgba(22,66,153,0.6)'};
-  }
-  .parallax > use:nth-child(3) {
-    animation-delay: -6s;
-    animation-duration: 7s;
-    fill: ${(props) =>
-      props.$teamState ? 'rgba(228,147,43,0.5)' : 'rgba(22,66,153,0.5)'};
-  }
-  .parallax > use:nth-child(4) {
-    animation-delay: -8s;
-    animation-duration: 9s;
-    fill: ${(props) =>
-      props.$teamState ? 'rgba(228,147,43,0.4)' : 'rgba(22,66,153,0.4)'};
-  }
-  .parallax > use:nth-child(5) {
-    animation-delay: -10s;
-    animation-duration: 11s;
-    fill: ${(props) =>
-      props.$teamState ? 'rgba(228,147,43,0.3)' : 'rgba(22,66,153,0.3)'};
-  }
-  .parallax > use:nth-child(6) {
-    animation-delay: -12s;
-    animation-duration: 13s;
-    fill: ${(props) =>
-      props.$teamState ? 'rgba(228,147,43,0.9)' : 'rgba(22,66,153,0.9)'};
-  }
 `;
