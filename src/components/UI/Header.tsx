@@ -1,19 +1,23 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import Navigator from './Navigator';
 
 interface Props {
   pathname: string;
   isTeamChanged: boolean;
 }
 
-type headerStyleProps = {
+export type headerStyleProps = {
   $scroll: number;
   $pathname: string;
+  $menu?: boolean;
+  $isHovered: boolean;
 };
 
 const Header = ({ pathname, isTeamChanged }: Props) => {
   const [scrollLocation, setScrollLocation] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const updateScroll = () => {
     setScrollLocation(window.scrollY || document.documentElement.scrollTop);
@@ -26,7 +30,13 @@ const Header = ({ pathname, isTeamChanged }: Props) => {
   });
 
   return (
-    <HeaderSection $scroll={scrollLocation} $pathname={pathname}>
+    <HeaderSection
+      $scroll={scrollLocation}
+      $pathname={pathname}
+      $isHovered={isHovered}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <FlexContainer>
         <LogoSection to="/">
           <img
@@ -35,36 +45,11 @@ const Header = ({ pathname, isTeamChanged }: Props) => {
             style={{ width: '183px', height: '28px' }}
           />
         </LogoSection>
-        <NavigationSection>
-          <NavigationButton
-            to="culture"
-            $scroll={scrollLocation}
-            $pathname={pathname}
-          >
-            Culture
-          </NavigationButton>
-          <NavigationButton
-            to="people"
-            $scroll={scrollLocation}
-            $pathname={pathname}
-          >
-            People
-          </NavigationButton>
-          <NavigationButton
-            to="benefit"
-            $scroll={scrollLocation}
-            $pathname={pathname}
-          >
-            Benefits
-          </NavigationButton>
-          <NavigationButton
-            to="portfolio"
-            $scroll={scrollLocation}
-            $pathname={pathname}
-          >
-            Portfolio
-          </NavigationButton>
-        </NavigationSection>
+        <Navigator
+          scrollLocation={scrollLocation}
+          pathname={pathname}
+          isHovered={isHovered}
+        />
       </FlexContainer>
     </HeaderSection>
   );
@@ -76,7 +61,7 @@ const HeaderSection = styled.div<headerStyleProps>`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 100px;
+  height: ${(props) => (props.$isHovered ? '258px' : '112px')};
   padding-top: 35px;
 
   background: ${(props) =>
@@ -93,34 +78,13 @@ const HeaderSection = styled.div<headerStyleProps>`
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
 
   width: 100%;
   height: 100%;
 `;
 
 const LogoSection = styled(Link)`
+  padding-top: 24px;
   margin-left: 126px;
 `;
 
-const NavigationSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-right: 65px;
-`;
-
-const NavigationButton = styled(Link)<headerStyleProps>`
-  margin-right: 61px;
-
-  background: unset;
-  border: unset;
-  transition: all ease 0.3s;
-
-  font-size: 20px;
-  font-weight: 400;
-  color: ${(props) =>
-    props.$scroll > 117 || props.$pathname !== '/' ? '#5B5B5B' : '#fff'};
-  text-decoration: none;
-`;

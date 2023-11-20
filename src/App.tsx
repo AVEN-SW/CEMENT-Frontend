@@ -7,18 +7,18 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [isTeamChanged, setIsTeamChanged] = useState(false);
-  const urlLocation = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     setIsTeamChanged(false);
-  }, [urlLocation.pathname]);
+  }, [pathname]);
 
   return (
     <>
       <GlobalStyle />
       <InfinityScrollText />
-      <Header pathname={urlLocation.pathname} isTeamChanged={isTeamChanged} />
-      <Outlet context={{ isTeamChanged, setIsTeamChanged }} />
+      <Header pathname={pathname} isTeamChanged={isTeamChanged} />
+      <Outlet />
     </>
   );
 }
