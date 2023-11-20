@@ -28,7 +28,7 @@ const CulturePageSection = styled.div`
 
   width: 100%;
 
-  padding: 117px 422px 0 422px;
+  padding: 100px 422px 0 422px;
   margin-bottom: 420px;
 `;
 

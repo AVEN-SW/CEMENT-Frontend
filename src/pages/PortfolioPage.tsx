@@ -1,18 +1,18 @@
 import { styled } from 'styled-components';
 
 const portfolioImages = [
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
-  '/assets//sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
+  '/assets/sample.png',
 ];
 
 const PortfolioPage = () => {
@@ -48,7 +48,7 @@ export default PortfolioPage;
 const PortfolioPageSection = styled.div`
   width: 100%;
 
-  padding-top: 117px;
+  padding-top: 100px;
 `;
 
 const FlexContainer = styled.div`

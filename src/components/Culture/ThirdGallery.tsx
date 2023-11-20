@@ -12,13 +12,13 @@ const ThirdGallery = () => {
           시민 의식을 가지고 타협 없이 정직하게 일합니다.
         </ThirdGallerySubTitle>
         <ThirdGalleryImage
-          src="/assets//third-gallery.png"
+          src="/assets/third-gallery.png"
           alt="세 번째 갤러리 이미지"
         />
       </ThirdGalleryTitleContainer>
       <ThirdGallerySecondImageContainer>
         <ThirdGallerySecondImage
-          src="/assets//third-gallery2.png"
+          src="/assets/third-gallery2.png"
           alt="세 번째 갤러리 두 번째 이미지"
         />
       </ThirdGallerySecondImageContainer>
